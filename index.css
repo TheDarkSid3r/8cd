@@ -1,0 +1,106 @@
+body {
+    margin: 0;
+}
+
+.cakes {
+    position: relative;
+    height: 100vh;
+    background: url(cake/copy.png) center/cover;
+    overflow: hidden;
+}
+
+.inner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 1280px;
+    height: 720px;
+    /* make it look a little less janky while the page loads */
+    transform: translate(-50%, -50%);
+}
+
+.cake {
+    position: absolute;
+    width: 250px;
+    height: 250px;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 1;
+    transform: none;
+    transition: opacity 0.4s ease, transform 2.5s ease-out;
+}
+
+.cakes.selected .cake:not(.selected) {
+    opacity: 0.5;
+    transform: scale(0.9) rotate(calc(var(--rotation) * -1));
+}
+
+.cake.selected {
+    transform: scale(1.1) rotate(var(--rotation));
+}
+
+.cake.logo {
+    width: 350px;
+    height: 200px;
+    background-image: url(cake/logo.png);
+    top: 18%;
+    left: 38.5%;
+    z-index: 7;
+    --rotation: -2deg;
+}
+
+.cake.job {
+    background-image: url(cake/jobjob.png);
+    top: 12%;
+    left: 17%;
+    --rotation: -6deg;
+}
+
+.cake.weapons {
+    background-image: url(cake/weapons.png);
+    top: 14%;
+    right: 15%;
+    --rotation: 9deg;
+}
+
+.cake.drawful {
+    background-image: url(cake/drawful.png);
+    bottom: 15%;
+    right: 21%;
+    border-radius: 130px 0 0 0;
+    --rotation: -8deg;
+}
+
+.cake.wheel {
+    background-image: url(cake/wheel.png);
+    bottom: 20%;
+    left: 22%;
+    border-radius: 0 190px 0 0;
+    --rotation: 18deg;
+}
+
+.cake.poll {
+    background-image: url(cake/pollmine.png);
+    bottom: 5%;
+    left: 40%;
+    --rotation: 7deg;
+}
+
+@font-face {
+    font-family: "Bourton Hand Base";
+    src: url(font.otf);
+}
+
+.countdown {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    white-space: nowrap;
+    font-size: 60px;
+    font-family: "Bourton Hand Base";
+    color: #ffff6b;
+    text-shadow: 0 1px 5px #000, 6px 6px 5px #0005;
+}
