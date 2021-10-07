@@ -32,8 +32,13 @@ window.addEventListener("load", () => {
 
     let currentNumber = "";
     const count = () => {
-        const releaseDate = new Date("October 14, 2021, 10:00 PM PDT");
+        const releaseDate = new Date("October 15, 2021, 12:00 AM CDT");
         const difference = releaseDate - new Date();
+        if (difference < 0) {
+            document.querySelector(".countdown").innerText = "PLAY NOW!";
+            document.title = "The Jackbox Party Pack 8 is OUT NOW!";
+            return;
+        }
         const days = Math.floor(difference / (1000 * 60 * 60 * 24));
         const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
         const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
@@ -43,7 +48,7 @@ window.addEventListener("load", () => {
         document.querySelector(".countdown").innerText = final;
         if (currentNumber != final) document.title = `${final} | Party Pack 8 Countdown`;
         currentNumber = final;
+        setTimeout(count, 250);
     };
     count();
-    setInterval(count, 250);
 });
