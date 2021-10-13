@@ -32,7 +32,7 @@ window.addEventListener("load", () => {
 
     let currentNumber = "";
     const count = () => {
-        const releaseDate = new Date("October 15, 2021, 12:00 AM CDT");
+        const releaseDate = new Date("October 14, 2021, 12:00 AM CDT");
         const difference = releaseDate - new Date();
         if (difference < 0) {
             document.querySelector(".countdown").innerText = "PLAY NOW!";
