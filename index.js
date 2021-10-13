@@ -43,7 +43,7 @@ window.addEventListener("load", () => {
         const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
         const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
         const seconds = Math.floor((difference % (1000 * 60)) / 1000);
-        const ret = [days, hours, minutes, seconds];
+        const ret = [hours, minutes, seconds];
         const final = ret.filter(x => x != null).map(x => x.toString().padStart(2, "0")).join(":");
         document.querySelector(".countdown").innerText = final;
         if (currentNumber != final) document.title = `${final} | Party Pack 8 Countdown`;
